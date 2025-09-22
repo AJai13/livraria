@@ -8,27 +8,18 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 import logging
 
-# Configuração de logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 
 class DatabaseManager:
-    """Classe responsável por gerenciar as operações do banco de dados SQLite."""
     
     def __init__(self, db_path: str = "data/livraria.db"):
-        """
-        Inicializa o gerenciador de banco de dados.
-        
-        Args:
-            db_path: Caminho para o arquivo do banco de dados
-        """
         self.db_path = Path(db_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._criar_tabela()
     
     def _criar_tabela(self) -> None:
-        """Cria a tabela de livros se ela não existir."""
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -48,18 +39,6 @@ class DatabaseManager:
             raise
     
     def adicionar_livro(self, titulo: str, autor: str, ano_publicacao: int, preco: float) -> int:
-        """
-        Adiciona um novo livro ao banco de dados.
-        
-        Args:
-            titulo: Título do livro
-            autor: Autor do livro
-            ano_publicacao: Ano de publicação
-            preco: Preço do livro
-            
-        Returns:
-            ID do livro inserido
-        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -76,12 +55,6 @@ class DatabaseManager:
             raise
     
     def listar_livros(self) -> List[Tuple]:
-        """
-        Lista todos os livros cadastrados.
-        
-        Returns:
-            Lista de tuplas com informações dos livros
-        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -94,15 +67,6 @@ class DatabaseManager:
             raise
     
     def buscar_livro_por_id(self, livro_id: int) -> Optional[Tuple]:
-        """
-        Busca um livro específico pelo ID.
-        
-        Args:
-            livro_id: ID do livro
-            
-        Returns:
-            Tupla com informações do livro ou None se não encontrado
-        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -118,15 +82,6 @@ class DatabaseManager:
             raise
     
     def buscar_livros_por_autor(self, autor: str) -> List[Tuple]:
-        """
-        Busca livros por autor.
-        
-        Args:
-            autor: Nome do autor (busca parcial)
-            
-        Returns:
-            Lista de tuplas com informações dos livros
-        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -140,16 +95,6 @@ class DatabaseManager:
             raise
     
     def atualizar_preco(self, livro_id: int, novo_preco: float) -> bool:
-        """
-        Atualiza o preço de um livro.
-        
-        Args:
-            livro_id: ID do livro
-            novo_preco: Novo preço do livro
-            
-        Returns:
-            True se a atualização foi bem-sucedida, False caso contrário
-        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -167,15 +112,6 @@ class DatabaseManager:
             raise
     
     def remover_livro(self, livro_id: int) -> bool:
-        """
-        Remove um livro do banco de dados.
-        
-        Args:
-            livro_id: ID do livro a ser removido
-            
-        Returns:
-            True se a remoção foi bem-sucedida, False caso contrário
-        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -192,12 +128,6 @@ class DatabaseManager:
             raise
     
     def contar_livros(self) -> int:
-        """
-        Conta o total de livros cadastrados.
-        
-        Returns:
-            Número total de livros
-        """
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
@@ -209,10 +139,4 @@ class DatabaseManager:
             raise
     
     def get_database_path(self) -> Path:
-        """
-        Retorna o caminho do banco de dados.
-        
-        Returns:
-            Objeto Path do banco de dados
-        """
         return self.db_path

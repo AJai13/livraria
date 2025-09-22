@@ -2,29 +2,29 @@
 
 Um sistema completo de gerenciamento de livraria desenvolvido em Python, que integra SQLite, manipulação de arquivos CSV, backup automático e validação de dados.
 
-## 📋 Funcionalidades
+## Funcionalidades
 
-### ✅ Operações CRUD Completas
-- ➕ **Adicionar livros** com validação de dados
-- 📖 **Listar todos os livros** cadastrados
-- 💰 **Atualizar preços** de livros existentes
-- 🗑️ **Remover livros** do sistema
-- 🔍 **Buscar livros por autor**
+### Operações CRUD Completas
+- **Adicionar livros** com validação de dados
+- **Listar todos os livros** cadastrados
+- **Atualizar preços** de livros existentes
+- **Remover livros** do sistema
+- **Buscar livros por autor**
 
-### 💾 Gerenciamento de Dados
-- 📤 **Exportar dados** para arquivos CSV
-- 📥 **Importar dados** de arquivos CSV
-- 🔄 **Backup automático** antes de modificações
-- 🧹 **Limpeza automática** de backups antigos (mantém 5 mais recentes)
+### Gerenciamento de Dados
+- **Exportar dados** para arquivos CSV
+- **Importar dados** de arquivos CSV
+- **Backup automático** antes de modificações
+- **Limpeza automática** de backups antigos (mantém 5 mais recentes)
 
-### 🛡️ Validações Implementadas
+### Validações Implementadas
 - **Título**: 2-200 caracteres, caracteres válidos
 - **Autor**: 2-100 caracteres, apenas letras e caracteres especiais permitidos
 - **Ano**: Entre 1450 e ano atual
 - **Preço**: Valores positivos até R$ 9.999,99 com formatação automática
 - **Nomes de arquivo**: Caracteres válidos para sistema de arquivos
 
-## 🗂️ Estrutura de Arquivos
+## Estrutura de Arquivos
 
 ```
 meu_sistema_livraria/
@@ -43,7 +43,7 @@ meu_sistema_livraria/
 └── livraria_system.log    # Arquivo de log do sistema
 ```
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Pré-requisitos
 - Python 3.8 ou superior
@@ -55,7 +55,7 @@ cd meu_sistema_livraria
 python main.py
 ```
 
-## 📖 Menu Principal
+## Menu Principal
 
 ```
 ==================================================
@@ -73,18 +73,18 @@ python main.py
 ==================================================
 ```
 
-## 🎯 Exemplos de Uso
+## Exemplos de Uso
 
 ### Adicionando um Livro
 ```
-📖 ADICIONAR NOVO LIVRO
+ ADICIONAR NOVO LIVRO
 ------------------------------
 Digite o título do livro: 1984
 Digite o nome do autor: George Orwell
 Digite o ano de publicação: 1949
 Digite o preço (ex: 29.99): R$ 29,90
 
-✅ Livro adicionado com sucesso! ID: 1
+   Livro adicionado com sucesso! ID: 1
    Título: 1984
    Autor: George Orwell
    Ano: 1949
@@ -108,7 +108,7 @@ Dom Casmurro,Machado de Assis,1899,25.50
 - Mantém automaticamente os 5 backups mais recentes
 - Formato: `backup_livraria_YYYY-MM-DD_HH-MM-SS.db`
 
-## 🔧 Recursos Técnicos
+## Recursos Técnicos
 
 ### Banco de Dados SQLite
 - Tabela `livros` com campos: id, titulo, autor, ano_publicacao, preco
@@ -132,7 +132,7 @@ Dom Casmurro,Machado de Assis,1899,25.50
 - Logs salvos em `livraria_system.log`
 - Diferentes níveis: INFO, WARNING, ERROR, CRITICAL
 
-## ⚠️ Tratamento de Erros
+## Tratamento de Erros
 
 O sistema implementa tratamento robusto de erros:
 - **Validação de entrada**: Dados inválidos são rejeitados com mensagens claras
@@ -141,14 +141,14 @@ O sistema implementa tratamento robusto de erros:
 - **Interrupção do usuário**: Ctrl+C tratado graciosamente
 - **Backup de segurança**: Sistema continua funcionando mesmo se backup falhar
 
-## 🔄 Fluxo de Backup
+## Fluxo de Backup
 
 1. **Antes de qualquer modificação** → Backup automático criado
 2. **Operação executada** → Mudanças aplicadas no banco
 3. **Limpeza automática** → Mantém apenas 5 backups mais recentes
 4. **Log registrado** → Operação documentada em arquivo de log
 
-## 📊 Recursos Extras Implementados
+## Recursos Extras Implementados
 
 - **Contador de livros** em tempo real
 - **Formatação de preços** brasileira (R$ XX,XX)
@@ -158,7 +158,7 @@ O sistema implementa tratamento robusto de erros:
 - **Confirmação para operações destrutivas**
 - **Suporte a caracteres especiais** (acentos, etc.)
 
-## 🎓 Conceitos Demonstrados
+## Conceitos Demonstrados
 
 Este projeto demonstra o uso prático de:
 - **SQLite e CRUD**: Operações completas de banco de dados
